@@ -9,6 +9,7 @@ module.exports = {
       summary: "summary",
     },
     description: "A simple crash course",
+    image: "",
     siteUrl: "https://localhost:8001",
     social: {
       twitter: "konrad_twit",

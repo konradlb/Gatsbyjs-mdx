@@ -1,15 +1,15 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Post from "../components/Post/post";
+import Post from "../components/Post";
+import Seo from "../components/Seo";
 
 const IndexPage = ({ data }) => {
   console.log("data.site");
   console.log(data);
 
-  const { site, allMdx } = data;
+  const { allMdx } = data;
 
-  const { author, description, siteUrl, social, title } = site.siteMetadata;
   const { nodes: posts } = allMdx;
 
   console.log("posts");
@@ -17,7 +17,6 @@ const IndexPage = ({ data }) => {
 
   return (
     <main>
-      <title>{title}</title>
       <h1> Blog Posts</h1>
       {posts.map((post) => (
         <Post key={post.id} post={post} />
@@ -28,22 +27,10 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
+export const Head = () => <Seo />;
+
 export const pageQuery = graphql`
   {
-    site {
-      siteMetadata {
-        author {
-          name
-          summary
-        }
-        description
-        siteUrl
-        social {
-          twitter
-        }
-        title
-      }
-    }
     allMdx(sort: { frontmatter: { date: ASC } }, filter: {}) {
       nodes {
         id
