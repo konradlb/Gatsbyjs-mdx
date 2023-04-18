@@ -1,12 +1,27 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 
-import MainPage from '../components/MainPage';
+import Post from './post';
+import Seo from '../Seo';
 
-const IndexPage = ({ data }) => {
-    return <MainPage data={data} />;
+const MainPage = ({ data }) => {
+    const { allMdx } = data;
+
+    const { nodes: posts } = allMdx;
+
+    return (
+        <main>
+            <h1> Blog Posts</h1>
+            {posts.map(post => (
+                <Post key={post.id} post={post} />
+            ))}
+        </main>
+    );
 };
 
-export default IndexPage;
+export default MainPage;
+
+export const Head = () => <Seo />;
 
 export const pageQuery = graphql`
     {
