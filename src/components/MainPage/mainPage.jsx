@@ -4,13 +4,15 @@ import { graphql } from 'gatsby';
 import Post from './post';
 import Seo from '../Seo';
 
+import * as classes from './mainPage.module.css';
+
 const MainPage = ({ data }) => {
     const { allMdx } = data;
 
     const { nodes: posts } = allMdx;
 
     return (
-        <main>
+        <main className={classes.root}>
             <h1> Blog Posts</h1>
             {posts.map(post => (
                 <Post key={post.id} post={post} />

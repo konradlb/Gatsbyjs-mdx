@@ -1,9 +1,17 @@
 import React from 'react';
 
 import MainPage from '../components/MainPage';
+import Header from '../components/Header';
+
+import * as classes from '../css/index.module.css';
 
 const IndexPage = ({ data }) => {
-    return <MainPage data={data} />;
+    return (
+        <div className={classes.root}>
+            <Header />
+            <MainPage data={data} />
+        </div>
+    );
 };
 
 export default IndexPage;

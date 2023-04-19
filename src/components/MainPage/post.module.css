@@ -1,3 +1,43 @@
 .root {
-  background-color: gray;
+    padding: 2 rem;
+    list-style: none;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 20px;
+    margin-top: 2rem;
+    transition: transform 350ms;
+}
+
+/* .root:hover {
+    cursor: pointer;
+    text-decoration: none;
+    border-left: 2px solid #60a1e7;
+    border-bottom: 2px solid #60a1e7;
+    transform: translateX(-2px);
+} */
+.root:first-of-type {
+    margin-top: 4rem;
+}
+
+.title,
+.title > a,
+.link,
+.link > a {
+    margin: 0;
+    font-weight: 600;
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+}
+
+.date {
+    margin: 1rem;
+    font-size: 1 rem;
+}
+
+.description {
+    margin-top: 1rem;
+    color: #707070;
+    font-size: 1.2rem;
 }
